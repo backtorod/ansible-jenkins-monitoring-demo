@@ -11,8 +11,8 @@
 
   - jenkins_job:
       config: "{{ lookup('file', 'templates/job.xml.j2') }}"
-      name: test job
+      name: "Job {{ item }}"
       password: admin
       url: http://localhost:8080
       user: admin
-    with_sequence: start=0 end=10 stride=2
+    with_sequence: start=101 end=800 stride=1

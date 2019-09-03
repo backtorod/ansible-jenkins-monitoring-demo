@@ -1,6 +1,6 @@
 ---
 
-version: "3"
+version: "2"
 services:
 
   jenkins:
@@ -9,10 +9,12 @@ services:
       context: jenkins
     environment:
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
+      JENKINS_HOME: "/var/lib/jenkins"
     volumes: 
-      - $PWD/jenkins_data:/var/jenkins_home
+      - $PWD/jenkins_data:/var/lib/jenkins
     ports:
       - 8080:8080
+    privileged: true
 
 
   grafana:
